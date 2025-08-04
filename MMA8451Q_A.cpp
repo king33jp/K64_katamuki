@@ -13,6 +13,7 @@
 
 MMA8451Q_A::MMA8451Q_A(PinName sda, PinName scl, int addr) : m_i2c(sda, scl), m_addr(addr) {
     // activate the peripheral
+    m_i2c.frequency(400000);
     uint8_t data[2] = {REG_CTRL_REG_1, 0x01};
     writeRegs(data, 2);
 }
